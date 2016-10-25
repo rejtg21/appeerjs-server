@@ -1,0 +1,28 @@
+{
+  "name": "appeerjs-server",
+  "version": "0.0.1",
+  "description": "A simple signaling server built for appeerjs clients using Socket.io.",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TMJPEngineering/appeerjs-server.git"
+  },
+  "keywords": [
+    "tmj",
+    "webrtc",
+    "rtc",
+    "peer"
+  ],
+  "author": "Julius Marvin S. San Pascual <jm.sanpascual@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TMJPEngineering/appeerjs-server/issues"
+  },
+  "homepage": "https://github.com/TMJPEngineering/appeerjs-server#readme",
+  "dependencies": {
+    "socket.io": "^1.5.1"
+  }
+}
