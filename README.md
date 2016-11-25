@@ -10,7 +10,7 @@ A simple signaling server built for appeerjs clients using Socket.io.
 2. Require appeer.js to your main server script.
 
   ```javascript
-  var AppeerServer = require('appeerjs').AppeerServer;
+  var AppeerServer = require('appeerjs-server').AppeerServer;
   ```
 3. Setup the Socket.io and then instantiate the AppeerServer inside the connection event.
    Let's say the file name is server.js.
