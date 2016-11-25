@@ -17,11 +17,15 @@ A simple signaling server built for appeerjs clients using Socket.io.
 
   ```javascript
   // Create an https server instance to listen to request
+  var appeer = require('appeerjs-server');
   var server = require('https').createServer(sslConf, app);
   var io = require('socket.io').listen(server);
   
+  // Middleware to get the custom id of the connecting user
+  io.use(appeer.getCustomIdMiddleware);
   io.on('connection', function (socket) {
-    var appeer = new AppeerServer(socket);
+      console.log('A user has connected with socket id', socket.id);
+      appeer.initListeners(socket);
   });
   ```
 4. Run the server, and you're good to go.
