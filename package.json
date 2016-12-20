@@ -1,6 +1,6 @@
 {
   "name": "appeerjs-server",
-  "version": "0.0.2",
+  "version": "0.1.2",
   "description": "A simple signaling server built for appeerjs clients using Socket.io.",
   "main": "./lib/index.js",
   "scripts": {
