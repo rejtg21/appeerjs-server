@@ -10,7 +10,7 @@ A simple signaling server built for appeerjs clients using Socket.io.
 2. Require appeer.js to your main server script.
 
   ```javascript
-  var AppeerServer = require('appeerjs-server').AppeerServer;
+  var appeer = require('appeerjs-server');
   ```
 3. Setup the Socket.io and then instantiate the AppeerServer inside the connection event.
    Let's say the file name is server.js.
@@ -20,8 +20,11 @@ A simple signaling server built for appeerjs clients using Socket.io.
   var server = require('https').createServer(sslConf, app);
   var io = require('socket.io').listen(server);
   
+  // Middleware to get the custom id of the connecting user
+  io.use(appeer.getCustomIdMiddleware);
   io.on('connection', function (socket) {
-    var appeer = new AppeerServer(socket);
+      console.log('A user has connected with socket id', socket.id);
+      appeer.initListeners(socket);
   });
   ```
 4. Run the server, and you're good to go.
