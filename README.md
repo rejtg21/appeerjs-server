@@ -16,6 +16,15 @@ A simple signaling server built for appeerjs clients using Socket.io.
    Let's say the file name is server.js.
 
   ```javascript
+  var app = express();
+  var fs = require('fs');
+  
+  // Add your ssl certificates
+  var sslConf = {
+    key: fs.readFileSync('server.key'),
+    cert: fs.readFileSync('server.crt')
+  };
+  
   // Create an https server instance to listen to request
   var server = require('https').createServer(sslConf, app);
   var io = require('socket.io').listen(server);
@@ -24,7 +33,9 @@ A simple signaling server built for appeerjs clients using Socket.io.
   io.use(appeer.getCustomIdMiddleware);
   io.on('connection', function (socket) {
       console.log('A user has connected with socket id', socket.id);
-      appeer.initListeners(socket);
+      appeer.initListeners(io, socket, {
+        debug: true // Set to true to show console logs and errors, defaults to false
+      });
   });
   ```
 4. Run the server, and you're good to go.
